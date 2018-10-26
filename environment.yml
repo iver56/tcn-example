@@ -1,0 +1,19 @@
+name: tcn-example
+channels:
+- defaults
+dependencies:
+- h5py>=2.7.0,<3
+- hdf5=1.8
+- Keras=2.2
+- matplotlib=2
+- mkl=2017.0.3
+- numpy>=1.12
+- pip>=9.0.1,<=18
+- python=3.6
+- scipy=0.19.1
+- zlib=1.2.11
+- tensorflow-gpu=1.11.0
+- pip:
+  - black==18.9b0
+  - joblib==0.12.5
+  - keras-tcn==2.2.3
