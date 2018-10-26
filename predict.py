@@ -11,14 +11,15 @@ if __name__ == "__main__":
     model = load_model(os.path.join('data', 'tcn.h5'))
 
     x, y = generate_sine_series()
-    x_np = np.array([x])
-    y_np = np.array([y])
+    x = np.array([x])
 
-    y_predicted = model.predict(x_np).flatten()
+    y_predicted = model.predict(x).flatten()
 
     fig, ax = plt.subplots()
-    ax.plot(x)
-    ax.plot(y)
-    ax.plot(y_predicted)
+    ax.plot(x[0, :, 0], label='noise input')
+    ax.plot(x[0, :, 1], label='sine input')
+    ax.plot(y, label='ground truth')
+    ax.plot(y_predicted, label='predicted')
     ax.grid()
+    plt.legend()
     plt.show()
