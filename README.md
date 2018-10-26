@@ -15,3 +15,5 @@
 # Play around
 
 Try to understand and tweak the parameters of `TCN()` in train.py, and see how it affects model performance
+
+See https://github.com/philipperemy/keras-tcn for more information
