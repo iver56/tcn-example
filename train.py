@@ -1,10 +1,9 @@
 import os
 
 import joblib
-from keras.layers import Dense
-from keras.models import Input, Model
 
-from tcn import TCN
+from bilstm_model import get_bilstm_model
+from tcn_model import get_tcn_model
 
 if __name__ == '__main__':
     data = joblib.load(os.path.join('data', 'dataset.pkl'))
@@ -15,14 +14,8 @@ if __name__ == '__main__':
     input_vector_size = len(x_sequences[0][0])
     target_vector_size = len(y_sequences[0][0])
 
-    model_input = Input(shape=(None, input_vector_size))
-    model_output = TCN(return_sequences=True)(model_input)
-    model_output = Dense(target_vector_size, activation='relu')(model_output)
-
-    model = Model(inputs=[model_input], outputs=[model_output])
-    model.compile(optimizer='adam', loss='mse')
-
-    model.summary()
+    model = get_tcn_model(input_vector_size, target_vector_size)
+    #model = get_bilstm_model(input_vector_size, target_vector_size)
 
     model.fit(x_sequences, y_sequences, epochs=10, validation_split=0.2)
 
