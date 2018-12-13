@@ -15,5 +15,7 @@ dependencies:
 - tensorflow=1.11.0
 - pip:
   - black==18.9b0
+  - git+https://github.com/maxpumperla/hyperas.git@master
   - joblib==0.12.5
   - keras-tcn==2.3.3
+  - scikit-learn==0.20.1
