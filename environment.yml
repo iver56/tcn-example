@@ -16,4 +16,4 @@ dependencies:
 - pip:
   - black==18.9b0
   - joblib==0.12.5
-  - keras-tcn==2.2.3
+  - keras-tcn==2.3.3

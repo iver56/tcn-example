@@ -17,7 +17,7 @@ if __name__ == '__main__':
     model = get_tcn_model(input_vector_size, target_vector_size)
     #model = get_bilstm_model(input_vector_size, target_vector_size)
 
-    model.fit(x_sequences, y_sequences, epochs=10, validation_split=0.2)
+    model.fit(x_sequences, y_sequences, epochs=25, validation_split=0.2)
 
     model.save(os.path.join('data', 'tcn.h5'))
 
