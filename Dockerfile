@@ -32,11 +32,6 @@ RUN chmod +x /usr/bin/tini
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
 
-RUN apt-get update && \
-    apt-get install -y libopencv-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 WORKDIR /usr/src/app
 
 # First copy only environment.yml, to cache dependencies
