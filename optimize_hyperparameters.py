@@ -5,6 +5,7 @@ import numpy as np
 from hyperas import optim
 from hyperopt import STATUS_OK, tpe, Trials
 from hyperopt.pyll.stochastic import choice, quniform, uniform
+from keras import backend as K
 from sklearn.model_selection import train_test_split
 
 from bilstm_model import get_bilstm_model
@@ -52,7 +53,9 @@ def create_model(x_train, y_train, x_test, y_test):
 
     best_validation_loss = np.amin(result.history["val_loss"])
 
-    return {"loss": best_validation_loss, "status": STATUS_OK, "model": model}
+    K.clear_session()
+
+    return {"loss": best_validation_loss, "status": STATUS_OK}
 
 
 if __name__ == "__main__":
@@ -64,8 +67,5 @@ if __name__ == "__main__":
         trials=Trials(),
     )
     print("====")
-    print("Evalutation of best performing model:")
-    x_train, y_train, x_test, y_test = get_data()
-    print(best_model.evaluate(x_test, y_test))
-    print("Best performing model chosen hyper-parameters:")
+    print("Recommended hyper-parameters:")
     print(best_run)
