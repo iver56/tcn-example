@@ -6,10 +6,10 @@ dependencies:
 - hdf5=1.8
 - Keras=2.2
 - matplotlib=2
-- mkl=2017.0.3
+- mkl>=2017,<2019
 - numpy>=1.12
-- pip>=9.0.1,<=18
-- python=3.6
+- pip>=9.0.1,<=19
+- python=3.6.6
 - scipy=0.19.1
 - zlib=1.2.11
 - tensorflow=1.11.0
